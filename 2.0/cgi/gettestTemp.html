@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>posttest</title>
+</head>
+<body>
+    <script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script>
+    <display></display>
+    <div id="display"></div>
+    <script type="text/javascript">
+
+        var data;
+
+        $.ajax({
+            type: "post",
+            dataType : 'html',
+            url: "./selectTemp.php",
+            data: data,
+            success: function( receivedData ){
+                document.getElementById( 'display' ).innerHTML = receivedData+"<br>";
+                data = JSON.parse(receivedData);
+                for(var i=0; i<data['data'].length; i++){
+	                var decoded = JSON.parse(data['data'][i]);
+	                document.getElementById( 'display' ).innerHTML += decoded['tower']+"<br>";
+	                document.getElementById( 'display' ).innerHTML += decoded['line']+"<br>";
+	        }
+                return false;
+            }
+        });
+
+    </script>
+</body>
+</html>

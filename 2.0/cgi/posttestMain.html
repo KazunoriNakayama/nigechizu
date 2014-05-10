@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>posttest</title>
+</head>
+<body>
+    <script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+
+        var data={
+            id : "NULL",
+            datetime: "NULL",
+            operations: "operation test",
+            results00 : "10.0",
+            results01 : "10.0",
+            results02 : "10.0",
+            results03 : "10.0",
+            results10 : "10.0",
+            results11 : "10.0",
+            results12 : "10.0",
+            results13 : "10.0",
+            results20 : "10.0",
+            results21 : "10.0",
+            results22 : "10.0",
+            results23 : "10.0"
+        };
+
+        $.ajax({
+            type: "post",
+            dataType : 'html',
+            url: "./insertMain.php",
+            data: data,
+            success: function() {
+                return false;
+            }
+        });
+
+    </script>
+</body>
+</html>

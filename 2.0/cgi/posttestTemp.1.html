@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>posttest</title>
+</head>
+<body>
+    <script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+
+	var data={data : '{"tower":[[952,698]],"line":[[[908,830],[860,883]],[[890,1104],[905,1193]]]}', status : 1};
+
+        $.ajax({
+            type: "post",
+            dataType : 'html',
+            url: "./insertTemp.php",
+            data: data,
+            success: function() {
+                return false;
+            }
+        });
+
+    </script>
+</body>
+</html>

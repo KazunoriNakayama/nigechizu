@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="ja">
+	<head>
+		<title>逃げ地図 beta</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link href="css/style.css" rel="stylesheet" type="text/css">
+		<link type="text/css" href="css/ui-darkness/jquery-ui-1.8.18.custom.css" rel="stylesheet" />
+	</head>
+	<body>
+
+		<div id="container"></div>
+		<canvas id="log_canvas"></canvas>
+		<div id="header" style="width:249px;">
+		<img src="img/title.png">
+		<img id="navichange" src="img/the_log.png" >
+		</div>
+
+		<div id="navigation" style="display: none;">
+
+		<div class="single_result">
+			安全避難地点
+			<div class="tN-ranking-1">0000</div>
+			箇所<br><br>
+			<div class="tN-ranking-1-diff">(▲+0000)</div>
+		</div>
+		<div class="single_result">
+			総避難時間
+			<div class="tT-ranking-1">0000</div>
+			分<br><br>
+			<div class="tT-ranking-1-diff">(▼+0000)</div>
+		</div>
+		<div class="single_result">
+			整備コスト
+			<div class="tC-ranking-1">000000</div>
+			万円
+		</div>
+		<div class="result_id">
+			<div class="ID-ranking-1"></div>
+		</div>
+		<div class="clear"></div>
+		<!------------------------------------------------------>
+		<div class="single_result">
+			安全避難地点
+			<div class="tN-ranking-2">0000</div>
+			箇所<br><br>
+			<div class="tN-ranking-2-diff">(▲+0000)</div>
+		</div>
+		<div class="single_result">
+			総避難時間
+			<div class="tT-ranking-2">0000</div>
+			分<br><br>
+			<div class="tT-ranking-2-diff">(▼+0000)</div>
+		</div>
+		<div class="single_result">
+			整備コスト
+			<div class="tC-ranking-2">000000</div>
+			万円
+		</div>
+		<div class="result_id">
+			<div class="ID-ranking-2"></div>
+		</div>
+		<div class="clear"></div>
+		<!------------------------------------------------------->
+		<div class="single_result">
+			安全避難地点
+			<div class="tN-ranking-3">0000</div>
+			箇所<br><br>
+			<div class="tN-ranking-3-diff">(▲+0000)</div>
+		</div>
+		<div class="single_result">
+			総避難時間
+			<div class="tT-ranking-3">0000</div>
+			分<br><br>
+			<div class="tT-ranking-3-diff">(▼+0000)</div>
+		</div>
+		<div class="single_result">
+			整備コスト
+			<div class="tC-ranking-3">000000</div>
+			万円
+		</div>
+		<div class="result_id">
+			<div class="ID-ranking-3"></div>
+		</div>
+		<div class="clear"></div>
+		<!------------------------------------------------------->
+		<div class="single_result">
+			安全避難地点
+			<div class="tN-ranking-4">0000</div>
+			箇所<br><br>
+			<div class="tN-ranking-4-diff">(▲+0000)</div>
+		</div>
+		<div class="single_result">
+			総避難時間
+			<div class="tT-ranking-4">0000</div>
+			分<br><br>
+			<div class="tT-ranking-4-diff">(▼+0000)</div>
+		</div>
+		<div class="single_result">
+			整備コスト
+			<div class="tC-ranking-4">000000</div>
+			万円
+		</div>
+		<div class="result_id">
+			<div class="ID-ranking-4"></div>
+		</div>
+		<div class="clear"></div>
+		<!-------------------------------------------------------->
+		<div class="single_result">
+			安全避難地点
+			<div class="tN-ranking-5">0000</div>
+			箇所<br><br>
+			<div class="tN-ranking-5-diff">(▲+0000)</div>
+		</div>
+		<div class="single_result">
+			総避難時間
+			<div class="tT-ranking-5">0000</div>
+			分<br><br>
+			<div class="tT-ranking-5-diff">(▼+0000)</div>
+		</div>
+		<div class="single_result">
+			整備コスト
+			<div class="tC-ranking-5">000000</div>
+			万円
+		</div>
+		<div class="result_id">
+			<div class="ID-ranking-5"></div>
+		</div>
+		<div class="clear"></div>
+		<!-------------------------------------------------------->
+		<div class="single_result">
+			安全避難地点
+			<div class="tN-ranking-6">0000</div>
+			箇所<br><br>
+			<div class="tN-ranking-6-diff">(▲+0000)</div>
+		</div>
+		<div class="single_result">
+			総避難時間
+			<div class="tT-ranking-6">0000</div>
+			分<br><br>
+			<div class="tT-ranking-6-diff">(▼+0000)</div>
+		</div>
+		<div class="single_result">
+			整備コスト
+			<div class="tC-ranking-6">000000</div>
+			万円
+		</div>
+		<div class="result_id">
+			<div class="ID-ranking-6"></div>
+		</div>
+		<div class="clear"></div>
+		<!-------------------------------------------------------->
+		<div class="single_result">
+			安全避難地点
+			<div class="tN-ranking-1">0000</div>
+			箇所<br><br>
+			<div class="tN-ranking-1-diff">(▲+0000)</div>
+		</div>
+		<div class="single_result">
+			総避難時間
+			<div class="tT-ranking-1">0000</div>
+			分<br><br>
+			<div class="tT-ranking-1-diff">(▼+0000)</div>
+		</div>
+		<div class="single_result">
+			整備コスト
+			<div class="tC-ranking-1">000000</div>
+			万円
+		</div>
+		<div class="clear"></div>
+		</div>
+
+		<div id="results" style="display: none;">
+	        <canvas id="result_canvas"></canvas>
+		</div>
+
+		<div id="currentResult">
+		<div class="single_result">
+			安全避難地点
+			<div id="totalSafeNodes">0000</div>
+			箇所<br><br>
+			<div id="deltaSafeNodes">(▲+0000)</div>
+		</div>
+		<div class="single_result">
+			総避難時間
+			<div id="totalSavedTime">0000</div>
+			分<br><br>
+			<div id="deltaSavedTime">(▼+0000)</div>
+		</div>
+		<div class="single_result">
+			整備コスト
+			<div id="totalCost">000000</div>
+			万円
+		</div>
+		<div class="clear"></div>
+		</div>
+
+		<div id="slider"></div>
+		<div id="visualize" onSelectStart = "return false;" onMouseDown = "return false;"></div>
+		<p id="text"></p>
+
+		<div id="footer" style="width:249px;">
+		<img src="img/copyright.png">
+		</div>
+		
+		<script src="./js/Three/Three.js" type="text/javascript"></script>
+		<script src="./js/Detector.js" type="text/javascript"></script>
+		<script src="./js/RhinishControls.js" type="text/javascript"></script>
+		<script src="./js/jquery-1.7.1.min.js" type="text/javascript"></script>
+		<script src="./js/jquery-ui-1.8.18.custom.min.js" type="text/javascript" charset="utf-8"></script>
+
+		<script type="text/javascript">
+$( function(){ 
+	$( '#slider' ).slider( {
+		step: 1, 
+		value: 0, 
+		min: 0
+	} );
+} );
+		</script>
+
+		<script src="./data/kesenuma.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./functions.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./classes.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./js/interface.js" type="text/javascript" charset="utf-8"></script>
+
+		<script src="./js/Graphics2D_canvas.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./canvas_result.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./canvas_log.js" type="text/javascript" charset="utf-8"></script>
+
+		<script src="./main.js" type="text/javascript" charset="utf-8"></script>
+
+	</body>
+</html>

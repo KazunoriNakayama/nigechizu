@@ -1,0 +1,31 @@
+Make the base map.
+
+Search the target area on the google maps.
+
+Printscreen 
+
+Save printscreened maps as JPEG.
+
+Print maps out using A4 size papers.
+
+Paste A4 maps tegather.
+
+Gathering information about the tsunami inundation line.
+
+Draw the the tsunami inundation line on the base map.
+
+Mark a evacuation point.
+
+タイムスケールバーに合わせて物差しを用意
+
+柔らかい紐を用意
+
+400mのスケールに合わせてカット
+
+避難ポイントから道路に沿ってメジャーをあてる
+
+全ての避難ポイントから道路に色を塗る。
+
+塗った道路の先端から次の色を塗る。
+
+全ての道路が塗り終わるまで上を繰り返す。

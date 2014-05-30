@@ -164,14 +164,14 @@ function intSegSeg( _seg1, _seg2 ){
 
 }
 
-//点のポリゴンへのないほう判定
+//点のポリゴンへの内包判定
 function isInPointTri( _point, _Triangle ){
 
 	var inCount = 0;
 	for( var i = 0; i < 3; i++ ){
-		var _v1 = new THREE.Vector3().sub( _Triangle[ i ], _point ).normalize();
-		var _v2 = new THREE.Vector3().sub( _Triangle[ ( i+1 )%3 ], _Triangle[ i ] ).normalize();
-		_v1 = _v1.crossSelf( _v2 );
+		var _v1 = new THREE.Vector3().subVectors( _Triangle[ i ], _point ).normalize();
+		var _v2 = new THREE.Vector3().subVectors( _Triangle[ ( i+1 )%3 ], _Triangle[ i ] ).normalize();
+		_v1 = new THREE.Vector3().crossVectors( _v1, _v2 );
 		if( _v1.z > 0.0000001 )inCount++;
 		else if( _v1.z < -0.0000001 )inCount--;
 	}
@@ -184,7 +184,7 @@ function isInPointTri( _point, _Triangle ){
 function inPointTri( _point, _Triangle ){
 
 	if( isInPointTri( _point, _Triangle ) ){
-		var _normal = new THREE.Vector3().cross( new THREE.Vector3().sub( _Triangle[ 0 ], _Triangle[ 1 ] ), new THREE.Vector3().sub( _Triangle[ 2 ], _Triangle[ 1 ] ) );
+		var _normal = new THREE.Vector3().crossVectors( new THREE.Vector3().subVectors( _Triangle[ 0 ], _Triangle[ 1 ] ), new THREE.Vector3().subVectors( _Triangle[ 2 ], _Triangle[ 1 ] ) );
 		_normal.normalize();
 		var _plane = new THREE.Vector4( _normal.x,
 						_normal.y,

@@ -761,7 +761,7 @@ THREE.GeoMesh.prototype = {
 			//探索対象ポリゴンが終点を含んでいる場合
 			if( _targetU == _endNodeU && _targetV == _endNodeV && _targetM == _endNodeM ){
 				//終点をポリラインに登録し、whileループから離脱
-				if( new THREE.Vector3().sub( _polyline[ _polyline.length-1 ], _endPoint ).lengthSq() > 0.0000001 ){
+				if( new THREE.Vector3().subVectors( _polyline[ _polyline.length-1 ], _endPoint ).lengthSq() > 0.0000001 ){
 					_polyline.push( _endPoint );
 				}
 				break;
@@ -770,8 +770,8 @@ THREE.GeoMesh.prototype = {
 			_face = [ this.Vertices[ (  _targetU+_targetM  )+(     _targetV      )*( this.U+1 ) ], 
 				  this.Vertices[ ( _targetU+1-_targetM )+( _targetV+_targetM )*( this.U+1 ) ], 
 				  this.Vertices[ (  _targetU+_targetM  )+(    _targetV+1     )*( this.U+1 ) ] ];
-			var _normal = new THREE.Vector3().cross( new THREE.Vector3().sub( _face[ 0 ], _face[ 1 ] ), 
-								 new THREE.Vector3().sub( _face[ 2 ], _face[ 1 ] ) );
+			var _normal = new THREE.Vector3().crossVectors( new THREE.Vector3().subVectors( _face[ 0 ], _face[ 1 ] ), 
+								 new THREE.Vector3().subVectors( _face[ 2 ], _face[ 1 ] ) );
 			_normal.normalize();
 			var _plane = new THREE.Vector4( _normal.x, 
 							_normal.y, 
@@ -794,7 +794,7 @@ THREE.GeoMesh.prototype = {
 							_targetM = 1;
 							_moveDir = 0;
 							_intPoint = intLinePlane( _plane, _intPoint, new THREE.Vector3( 0, 0, 1 ) );
-							if( new THREE.Vector3().sub( _polyline[ _polyline.length-1 ], _intPoint ).lengthSq() > 0.0000001 ){
+							if( new THREE.Vector3().subVectors( _polyline[ _polyline.length-1 ], _intPoint ).lengthSq() > 0.0000001 ){
 								_polyline.push( _intPoint );
 							}
 							_isInteracted = true;
@@ -811,7 +811,7 @@ THREE.GeoMesh.prototype = {
 						_targetM = 1;
 						_moveDir = 4;
 						_intPoint = intLinePlane( _plane, _intPoint, new THREE.Vector3( 0, 0, 1 ) );
-						if( new THREE.Vector3().sub( _polyline[ _polyline.length-1 ], _intPoint ).lengthSq() > 0.0000001 ){
+						if( new THREE.Vector3().subVectors( _polyline[ _polyline.length-1 ], _intPoint ).lengthSq() > 0.0000001 ){
 							_polyline.push( _intPoint );
 						}
 						_isInteracted = true;
@@ -832,7 +832,7 @@ THREE.GeoMesh.prototype = {
 							_targetM = 1;
 							_moveDir = 3;
 							_intPoint = intLinePlane( _plane, _intPoint, new THREE.Vector3( 0, 0, 1 ) );
-							if( new THREE.Vector3().sub( _polyline[ _polyline.length-1 ], _intPoint ).lengthSq() > 0.0000001 ){
+							if( new THREE.Vector3().subVectors( _polyline[ _polyline.length-1 ], _intPoint ).lengthSq() > 0.0000001 ){
 								_polyline.push( _intPoint );
 							}
 							_isInteracted = true;
@@ -850,7 +850,7 @@ THREE.GeoMesh.prototype = {
 						_targetM = 0;
 						_moveDir = 4;
 						_intPoint = intLinePlane( _plane, _intPoint, new THREE.Vector3( 0, 0, 1 ) );
-						if( new THREE.Vector3().sub( _polyline[ _polyline.length-1 ], _intPoint ).lengthSq() > 0.0000001 ){
+						if( new THREE.Vector3().subVectors( _polyline[ _polyline.length-1 ], _intPoint ).lengthSq() > 0.0000001 ){
 							_polyline.push( _intPoint );
 						}
 						_isInteracted = true;
@@ -871,7 +871,7 @@ THREE.GeoMesh.prototype = {
 							_targetM = 0;
 							_moveDir = 2;
 							_intPoint = intLinePlane( _plane, _intPoint, new THREE.Vector3( 0, 0, 1 ) );
-							if( new THREE.Vector3().sub( _polyline[ _polyline.length-1 ], _intPoint ).lengthSq() > 0.0000001 ){
+							if( new THREE.Vector3().subVectors( _polyline[ _polyline.length-1 ], _intPoint ).lengthSq() > 0.0000001 ){
 								_polyline.push( _intPoint );
 							}
 							_isInteracted = true;
@@ -893,7 +893,7 @@ THREE.GeoMesh.prototype = {
 							_targetM = 0;
 							_moveDir = 1;
 							_intPoint = intLinePlane( _plane, _intPoint, new THREE.Vector3( 0, 0, 1 ) );
-							if( new THREE.Vector3().sub( _polyline[ _polyline.length-1 ], _intPoint ).lengthSq() > 0.0000001 ){
+							if( new THREE.Vector3().subVectors( _polyline[ _polyline.length-1 ], _intPoint ).lengthSq() > 0.0000001 ){
 								_polyline.push( _intPoint );
 							}
 							_isInteracted = true;

@@ -89,11 +89,14 @@ THREE.RhinishControls = function ( object, domElement ) {
 			mouseOnBall.z = Math.sqrt( 1.0 - length * length );
 		}
 
-		_eye.copy( _this.object.position ).subSelf( _this.target );
+		//_eye.copy( _this.object.position ).subSelf( _this.target );
+		_eye = new THREE.Vector3().subVectors( _this.object.position, _this.target );
 
 		var projection = _this.object.up.clone().setLength( mouseOnBall.y );
-		projection.addSelf( _this.object.up.clone().crossSelf( _eye ).setLength( mouseOnBall.x ) );
-		projection.addSelf( _eye.setLength( mouseOnBall.z ) );
+		//projection.addSelf( _this.object.up.clone().crossSelf( _eye ).setLength( mouseOnBall.x ) );
+		//projection.addSelf( _eye.setLength( mouseOnBall.z ) );
+		projection = new THREE.Vector3().addVectors( projection, new THREE.Vector3().crossVectors( _this.object.up, _eye ).setLength( mouseOnBall.x ) );
+		projection = new THREE.Vector3().addVectors( projection, _eye.setLength( mouseOnBall.z ) );
 
 		return projection;
 
@@ -104,23 +107,29 @@ THREE.RhinishControls = function ( object, domElement ) {
 		var angle = Math.acos( _rotateStart.dot( _rotateEnd ) / _rotateStart.length() / _rotateEnd.length() );
 
 		if ( angle ) {
-			var axis = ( new THREE.Vector3() ).cross( _rotateStart, _rotateEnd ).normalize(),
+			var axis = ( new THREE.Vector3() ).crossVectors( _rotateStart, _rotateEnd ).normalize(),
 			quaternion = new THREE.Quaternion();
 
 			angle *= _this.rotateSpeed;
 
 			quaternion.setFromAxisAngle( axis, -angle );
 
-			quaternion.multiplyVector3( _eye );
-			quaternion.multiplyVector3( _this.object.up );
+			//quaternion.multiplyVector3( _eye );
+			//quaternion.multiplyVector3( _this.object.up );
 
-			quaternion.multiplyVector3( _rotateEnd );
+			//quaternion.multiplyVector3( _rotateEnd );
+
+			_eye.applyQuaternion( quaternion );
+			_this.object.up.applyQuaternion( quaternion );
+
+			_rotateEnd.applyQuaternion( quaternion );
 
 			if ( _this.staticMoving ) {
 				_rotateStart = _rotateEnd;
 			} else {
 				quaternion.setFromAxisAngle( axis, angle * ( _this.dynamicDampingFactor - 1.0 ) );
-				quaternion.multiplyVector3( _rotateStart );
+				//quaternion.multiplyVector3( _rotateStart );
+				_rotateStart.applyQuaternion( quaternion );
 			}
 		}
 	};
@@ -149,17 +158,22 @@ THREE.RhinishControls = function ( object, domElement ) {
 
 	this.panCamera = function() {
 
-		var mouseChange = _panEnd.clone().subSelf( _panStart );
+		//var mouseChange = _panEnd.clone().subSelf( _panStart );
+		var mouseChange = new THREE.Vector2().subVectors(_panEnd, _panStart );
 
 		if ( mouseChange.lengthSq() ) {
 
 			mouseChange.multiplyScalar( _eye.length() * _this.panSpeed );
 
-			var pan = _eye.clone().crossSelf( _this.object.up ).setLength( mouseChange.x );
-			pan.addSelf( _this.object.up.clone().setLength( mouseChange.y ) );
+			//var pan = _eye.clone().crossSelf( _this.object.up ).setLength( mouseChange.x );
+			//pan.addSelf( _this.object.up.clone().setLength( mouseChange.y ) );
+			var pan = new THREE.Vector3().crossVectors( _eye, _this.object.up ).setLength( mouseChange.x );
+			pan = new THREE.Vector3().addVectors( pan, _this.object.up.clone().setLength( mouseChange.y ) );
 
-			_this.object.position.addSelf( pan );
-			_this.target.addSelf( pan );
+			//_this.object.position.addSelf( pan );
+			//_this.target.addSelf( pan );
+			_this.object.position = new THREE.Vector3().addVectors( _this.object.position, pan );
+			_this.target = new THREE.Vector3().addVectors( _this.target, pan );
 
 			if ( _this.staticMoving ) {
 
@@ -167,7 +181,8 @@ THREE.RhinishControls = function ( object, domElement ) {
 
 			} else {
 
-				_panStart.addSelf( mouseChange.sub( _panEnd, _panStart ).multiplyScalar( _this.dynamicDampingFactor ) );
+				//_panStart.addSelf( mouseChange.sub( _panEnd, _panStart ).multiplyScalar( _this.dynamicDampingFactor ) );
+				_panStart = new THREE.Vector3().addVectors( _panStart, mouseChange.subVectors( _panEnd, _panStart ).multiplyScalar( _this.dynamicDampingFactor ) );
 
 			}
 
@@ -187,8 +202,7 @@ THREE.RhinishControls = function ( object, domElement ) {
 
 			if ( _eye.lengthSq() < _this.minDistance * _this.minDistance ) {
 
-				_this.object.position.add( _this.target, _eye.setLength( _this.minDistance ) );
-
+				_this.object.position.addVectors( _this.target, _eye.setLength( _this.minDistance ) );
 			}
 
 		}
@@ -197,7 +211,8 @@ THREE.RhinishControls = function ( object, domElement ) {
 
 	this.update = function() {
 
-		_eye.copy( _this.object.position ).subSelf( this.target );
+		//_eye.copy( _this.object.position ).subSelf( this.target );
+		_eye = new THREE.Vector3().subVectors( _this.object.position, this.target );
 
 		if ( !_this.noRotate ) {
 
@@ -217,7 +232,7 @@ THREE.RhinishControls = function ( object, domElement ) {
 
 		}
 
-		_this.object.position.add( _this.target, _eye );
+		_this.object.position.addVectors( _this.target, _eye );
 
 		_this.checkDistances();
 

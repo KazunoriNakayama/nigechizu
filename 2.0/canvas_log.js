@@ -10,7 +10,7 @@ function drawLog( _displayData, _dataIndex ){
 		//background(0,0,0);
 		fill( 255, 255, 255, 0.8 );
 		font( "Arial", 20 );
-		text( "date: "+_displayData[ _dataIndex ][ 1 ]+" id: "+_displayData[ _dataIndex ][ 0 ], width-320, 45 );
+		text( "date: "+/*_displayData[ _dataIndex ][ 1 ]+*/" id: "+_displayData[ _dataIndex ][ 0 ], width-320, 45 );
 		text( "安全避難地点: "+_displayData[ _dataIndex ][ 3 ], width-220, 65 );
 		text( "総避難時間: "+~~( _displayData[ _dataIndex ][ 4 ]/40 ), width-200, 85 );
 		text( "整備コスト: "+~~( _displayData[ _dataIndex ][ 5 ] ), width-190, 105 );

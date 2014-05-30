@@ -6,20 +6,26 @@ initNgchzWS();
 
 basemap = makeBM();
 
-drawNgchz(basemap, );
+drawNgchz(basemap, cPen, sMeasure);
 
 
 
 initNgchiz(){
-    
+	
 }
 
 makeBM(){
-    
+	
 }
 
 drawNgchz(tool _bm, ){
-    
+	inform targetPoints=evacPoints;
+	while(true){
+		
+		
+		targetPoint=endPoint;
+		if()break;
+	}
 }
 
 

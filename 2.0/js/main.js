@@ -130,7 +130,7 @@ function init(){
 	controls = new THREE.RhinishControls( camera, renderer.domElement );
 
 	//controls.radius = radius/20;
-	controls.rotateSpeed = 0.3;
+	controls.rotateSpeed = 0.5;
 	controls.zoomSpeed = 0.8;
 	controls.panSpeed = 0.12;
 	controls.dynamicDampingFactor = 0.3;
@@ -1329,8 +1329,7 @@ function updateCam(){
 		camera.position.y = radius*Math.cos( angleZ )*Math.sin( angleXY );
 		camera.position.z = radius*Math.sin( angleZ );
 
-		//camera.up = new THREE.Vector3( -camera.position.x, -camera.position.y, 0 ).normalize();
-		camera.up = new THREE.Vector3( 0, 1, 0 ).normalize();
+		camera.up = new THREE.Vector3( -camera.position.x, -camera.position.y, 0 ).normalize();
 		camera.lookAt( new THREE.Vector3( 0, 0, 0 ) );
 	}
 //????

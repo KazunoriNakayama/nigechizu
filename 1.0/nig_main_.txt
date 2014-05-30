@@ -1,8 +1,26 @@
 tool basemap;
+tool cPen;
+tool sMeasure
+
+initNgchzWS();
 
 basemap = makeBM();
 
-drawNigechizu(basemap, );
+drawNgchz(basemap, );
+
+
+
+initNgchiz(){
+    
+}
+
+makeBM(){
+    
+}
+
+drawNgchz(tool _bm, ){
+    
+}
 
 
 Search the target area on google maps.

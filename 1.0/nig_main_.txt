@@ -1,3 +1,10 @@
+tool basemap;
+
+basemap = makeBM();
+
+drawNigechizu(basemap, );
+
+
 Search the target area on google maps.
 
 Printscreen maps.

@@ -29,7 +29,7 @@ Making Nigechizu.
 	Mark evacuation points.
 	
 	Do while there are unpainted roads left.
-		
+	{
 		If first paint, let start points are evacuation points.
 		
 		Put the string measure along roads from start points.
@@ -37,4 +37,5 @@ Making Nigechizu.
 		Paint a color in road reached the string measure.
 		
 		let start points are end of painted roads.
+	}
 }

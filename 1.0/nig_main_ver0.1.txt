@@ -29,32 +29,44 @@ drawNgchz(tool _bm, ){
 }
 
 
-Search the target area on google maps.
+Making base map.
+{
+	Search the target area on google maps.
+	
+	Printscreen maps.
+	
+	Save printscreened maps as JPEG.
+	
+	Print maps out using A4 size papers.
+	
+	Paste A4 maps tegather.
+}
 
-Printscreen maps.
+Prepering Make a Nigechizu.
+{
+	Gathering information about the tsunami inundation line.
+	
+	Draw time scale bar using a scale bar of printed the map as reference.
+	
+	Prepering flexible and resilient strings as measure.
+	
+	Cut strings into 400 meter according to the scale.
+}
 
-Save printscreened maps as JPEG.
+Making Nigechizu.
+{
+	Draw the the tsunami inundation line on the base map.
 
-Print maps out using A4 size papers.
-
-Paste A4 maps tegather.
-
-Gathering information about the tsunami inundation line.
-
-Draw the the tsunami inundation line on the base map.
-
-Mark a evacuation point.
-
-タイムスケールバーに合わせて物差しを用意
-
-柔らかい紐を用意
-
-400mのスケールに合わせてカット
-
-避難ポイントから道路に沿ってメジャーをあてる
-
-全ての避難ポイントから道路に色を塗る。
-
-塗った道路の先端から次の色を塗る。
-
-全ての道路が塗り終わるまで上を繰り返す。
+	Mark evacuation points.
+	
+	Do while there are unpainted roads left.
+	{
+		If first paint, let start points are evacuation points.
+		
+		Put the string measure along roads from start points.
+		
+		Paint a color in road reached the string measure.
+		
+		let start points are end of painted roads.
+	}
+}

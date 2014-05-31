@@ -15,24 +15,26 @@ Prepering Make a Nigechizu.
 {
 	Gathering information about the tsunami inundation line.
 	
-	Draw time scale bar using a scale bar of printed maps as reference.
+	Draw time scale bar using a scale bar of printed the map as reference.
 	
-	Prepering flexible and resilient strings.
+	Prepering flexible and resilient strings as measure.
 	
-	Cut strings to scale400mのスケールに合わせてカット
+	Cut strings into 400 meter according to the scale.
 }
 
 Making Nigechizu.
 {
 	Draw the the tsunami inundation line on the base map.
 
-	Mark a evacuation point.
+	Mark evacuation points.
 	
-	Do while all road painted.
+	Do while there are unpainted roads left.
 		
-		避難ポイントから道路に沿ってメジャーをあてる
+		If first paint, let start points are evacuation points.
 		
-		全ての避難ポイントから道路に色を塗る。
+		Put the string measure along roads from start points.
 		
-		塗った道路の先端から次の色を塗る。
+		Paint a color in road reached the string measure.
+		
+		let start points are end of painted roads.
 }
